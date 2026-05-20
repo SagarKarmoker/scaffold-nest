@@ -17,7 +17,6 @@ import { MailModule } from './core/mail/mail.module';
 import { BullModule } from '@nestjs/bullmq';
 import { BullBoardModule } from '@bull-board/nestjs';
 import { ExpressAdapter } from '@bull-board/express';
-import { OrdersModule } from './modules/orders/orders.module';
 import { QueuesModule } from './core/queues/queues.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { ThrottlerBehindProxyGuard } from './core/guards/throttler-behind-proxy.guard';
@@ -130,7 +129,6 @@ const enableBullBoard = process.env.ENABLE_BULL_BOARD === 'true' ||
           }),
         ]
       : []),
-    OrdersModule,
     AdminModule,
   ],
   controllers: [AppController],

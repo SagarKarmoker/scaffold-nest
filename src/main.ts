@@ -9,8 +9,8 @@ import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { AllExceptionsFilter } from './common/filters/all-exception.filter';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { Logger } from 'winston';
-import * as cluster from 'cluster';
-import { cpus } from 'os';
+import * as cluster from 'node:cluster';
+import { cpus } from 'node:os';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {

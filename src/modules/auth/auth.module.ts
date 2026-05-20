@@ -30,10 +30,12 @@ import { MailModule } from 'src/core/mail/mail.module';
         if (!secret) {
           throw new Error('JWT_SECRET is not configured');
         }
+        const expiresIn =
+          (configService.get<string>('JWT.EXPIRATION') ?? '1d') as StringValue;
         return {
           secret,
           signOptions: {
-            expiresIn: (configService.get<string>('JWT.EXPIRATION') ?? '1d') as StringValue,
+            expiresIn,
           },
         };
       },
