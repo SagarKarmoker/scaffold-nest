@@ -13,7 +13,7 @@ export default new DataSource({
   entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
   migrations: [__dirname + '/../../migrations/*{.ts,.js}'],
   migrationsRun: false,
-  ssl: { rejectUnauthorized: false },
+  ssl: process.env.NODE_ENV === 'production',
   extra: {
     connectionLimit: Number(process.env.DB_CONNECTION_LIMIT) || 10,
   },
